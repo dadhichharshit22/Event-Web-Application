@@ -11,7 +11,7 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
             message: "Token missing",
         });
     }
-
+    
     try {
         const payload = jwt.verify(token, process.env.JWT_SECRET!);
         req.user = payload as any; // Cast payload to your AuthenticatedRequest interface
