@@ -8,6 +8,7 @@ import updateEvent from "../Controllers/updateEvent"
 
 const router = express.Router();
 
+// complete the route
 router.post("/login", login);
 router.post("/signup", signup);
 router.post("/createevent");
