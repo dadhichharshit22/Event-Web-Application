@@ -14,7 +14,7 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
     
     try {
         const payload = jwt.verify(token, process.env.JWT_SECRET!);
-        req.user = payload as any; // Cast payload to your AuthenticatedRequest interface
+        (req as Request).user = payload as any; // Cast payload to your AuthenticatedRequest interface
         next();
     } catch (error) {
         return res.status(401).json({
