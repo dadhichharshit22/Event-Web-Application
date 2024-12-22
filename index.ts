@@ -27,7 +27,7 @@ connectDB();
 // Cloudinary connect
 cloudinaryConnect();
 
-
+// port listen at this number
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
