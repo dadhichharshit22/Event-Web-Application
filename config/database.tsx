@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
     try {
+        // this connected with db
         await mongoose.connect(process.env.MONGODB_URL!, {
     useUnifiedTopology: true, // Recommended in Mongoose 6.x and newer
     useCreateIndex: true,      // Optional
