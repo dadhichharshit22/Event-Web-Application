@@ -21,7 +21,7 @@ app.use('/api/registrations', registrationRoutes);
 
 // Connect to database and start server
 const PORT = process.env.PORT || 3000;
-
+// start 
 const startServer = async () => {
   try {
     await connectDB();
