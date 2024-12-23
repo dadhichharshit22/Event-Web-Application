@@ -33,6 +33,6 @@ const startServer = async () => {
     process.exit(1);
   }
 };
-
+// start the server and connect the database
 startServer();
 
