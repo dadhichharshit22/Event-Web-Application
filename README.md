@@ -28,7 +28,7 @@ Users can directly participate in events by registering through EventShare. The 
 
 ## Getting Started
 ### Prerequisites
-[List prerequisites, e.g., Node.js, npm]
+[List prerequisites, e.g., Nodejs, npm,typescript,Expressjs]
 
 ### Steps
 1. Clone the repository:
