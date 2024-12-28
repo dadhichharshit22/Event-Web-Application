@@ -1,23 +1,10 @@
-// src/routes/auth.ts
-import express from "express";
-import {  } from "../Controllers/authController";
-import registerEvent from "../Controllers/registerEvent";
-import searchEvent from "../Controllers/searchEvent"
-import deleteEvent from '../Controllers/deleteEvent'
-import updateEvent from "../Controllers/updateEvent"
+import express from 'express';
+import * as authController from '../Controllers/authController';
 
 const router = express.Router();
 
-// complete the route
-router.post("/login", );
-router.post("/signup", );
-router.post("/createevent");
-router.put("/updateevent");
-router.delete("/deleteevent");
-router.get("/");
-router.get("/cityname/eventname");
-router.get("/eventname");
-
+router.post('/register', authController.register);
+router.post('/login', authController.login);
 
 export default router;
 

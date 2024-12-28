@@ -1,48 +1,17 @@
-import mongoose, { Document, Schema, model } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
-interface IEvent extends Document {
-    _doc: any;
-    username: string;
-    eventName: string;
-    link: string;
-    location: string;
-    rating: number;
-    imgLink: string;
-}
 
-const eventModel = new Schema({   
-    eventName: {
-        type: String,
-        required: true,
-        trim: true,
-    },
-    username: {
-        type: String,
-        required: [true, "Username is required"],
-        lowercase: true,
-        minlength: 3,
-        maxlength: 20,
-        trim: true,
-    },
-    link: {
-        type: String,
-    },
-    rating: {
-        type: Number,
-        default: -1,
-        maximum: 10,
-        minimum: 0,
-    },
-    location: {
-        type: String,
-        default: 'N/A',
-    },
-    imgLink: {
-        type: String,
-        default: 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png',
-    }
+
+const eventSchema = new Schema({
+  Name: { type: String, required: true, trim:true },
+  description: { type: String, required: true, trim:true },
+  date: { type: Date, required: true,trim:true },
+  domain:{type:String ,required:true},
+  location: { type: String, required: true },
+  capacity: { type: Number, required: true, trim:true },
+  image:{type:String, default:'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png'},
+  registeredUsers: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  organizerId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
 }, { timestamps: true });
 
-const Event = model<IEvent>('Event', eventModel);
-
-export default Event;
+export default mongoose.model('Event', eventSchema);
