@@ -5,7 +5,14 @@ import { AuthRequest } from '../middlewares/auth';
 export const createEvent = async (req: AuthRequest, res: Response): Promise<void> => {
   try {
     const event = new Event({
-      Name: req.body,
+      eventName: req.body.eventName,
+      description: req.body.description,
+      date: req.body.date,
+      domain:req.body.domain,
+      location:req.body.location,
+      capacity:req.body.capacity,
+      image:req.body.image,
+      registeredUsers: req.body.registeredUsers,
       organizerId: req.user.userId
     });
     await event.save();
