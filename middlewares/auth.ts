@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-
+import dotenv from "dotenv"
 export interface AuthRequest extends Request {
   user?: any;
 }
-
+dotenv.config();
 
 
 export const auth = async (req: AuthRequest, res: Response, next: NextFunction) => {

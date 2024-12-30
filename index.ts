@@ -5,6 +5,7 @@ import connectDB from './config/database';
 import authRoutes from './routes/user'
 import eventRoutes from './routes/event';
 import registrationRoutes from './routes/registration';
+import bodyParser from 'body-parser'
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
