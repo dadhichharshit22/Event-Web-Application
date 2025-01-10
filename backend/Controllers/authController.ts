@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../models/userModal';
 
-export const register = async (req: Request, res: Response): Promise<void> => {
+export const signin = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, password, name } = req.body;
 
@@ -40,10 +40,12 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     
     const user = await User.findOne({ email });
     if (!user) {
-      res.status(400).json({ error: 'Invalid credentials' });
+      res.status(401).json({ error: 'Invalid credentials' });
       return;
     }
-
+    bcrypt.compare(password,user.password).then(isMatch => {
+      console.log('Password match:', isMatch); // Should be true if the password is correct
+    });
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       res.status(400).json({ error: 'Invalid credentials' });

@@ -1,9 +1,17 @@
 import mongoose, { Schema } from 'mongoose';
 
-
-
-const eventSchema = new Schema({
-  Name: { type: String, required: true, trim:true },
+export interface IEvent extends Document {
+  eventName: string;
+  description: string;
+  date: Date;
+  domain: string;
+  location: Location; 
+  capacity: number;
+  image?: string; 
+  registeredUsers: mongoose.Types.ObjectId[]; 
+}
+const eventSchema = new Schema<IEvent>({
+  eventName: { type: String, required: true, trim:true },
   description: { type: String, required: true, trim:true },
   date: { type: Date, required: true,trim:true },
   domain:{type:String ,required:true},
@@ -11,7 +19,7 @@ const eventSchema = new Schema({
   capacity: { type: Number, required: true, trim:true },
   image:{type:String, default:'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png'},
   registeredUsers: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-  organizerId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+ 
 }, { timestamps: true });
 
 export default mongoose.model('Event', eventSchema);

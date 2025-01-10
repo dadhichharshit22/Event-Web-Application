@@ -1,19 +1,36 @@
 import { Request, Response } from 'express';
 import Event from '../models/eventModal';
-import { AuthRequest } from '../middlewares/auth';
+import { AuthRequest } from '../middlewares/authMiddleware';
+
+
 
 export const createEvent = async (req: AuthRequest, res: Response): Promise<void> => {
   try {
+    const { eventName, description, date, domain, location, capacity, image, registeredUsers } = req.body;
+
+    if (!eventName || !description || !date || !domain || !location || !capacity) {
+      res.status(400).json({ error: 'All fields are required' });
+    }
+
     const event = new Event({
-      Name: req.body,
-      organizerId: req.user.userId
+      eventName,
+      description,
+      date,
+      domain,
+      location,
+      capacity,
+      image,
+      registeredUsers
     });
+
     await event.save();
     res.status(201).json(event);
   } catch (error) {
     res.status(500).json({ error: 'Server error' });
   }
 };
+
+
 
 export const getAllEvents = async (req: Request, res: Response): Promise<void> => {
   try {
