@@ -2,9 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/database';
-import authRoutes from './routes/userRoutes'
-import eventRoutes from './routes/eventRoutes';
-import registrationRoutes from './routes/registrationRoutes';
+import authRoutes from './routes/user'
+import eventRoutes from './routes/event';
+import registrationRoutes from './routes/registration';
 import bodyParser from 'body-parser'
 
 dotenv.config();

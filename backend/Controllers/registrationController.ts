@@ -1,6 +1,6 @@
 import { Response } from 'express';
-import { AuthRequest } from '../middlewares/authMiddleware';
-import Registration from '../models/registrationModal';
+import { AuthRequest } from '../middlewares/auth';
+import Registration from '../models/registration';
 import Event from '../models/eventModal';
 
 export const registerForEvent = async (req: AuthRequest, res: Response): Promise<void> => {

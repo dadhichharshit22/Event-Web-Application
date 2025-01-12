@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import Event from '../models/eventModal';
-import { AuthRequest } from '../middlewares/authMiddleware';
+import { AuthRequest } from '../middlewares/auth';
 
 
 
