@@ -34,7 +34,7 @@ const SignUp: React.FC = () => {
           return;
         }
        
-        // Replace for the sinup api
+    
 
 
 
