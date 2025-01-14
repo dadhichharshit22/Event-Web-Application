@@ -1,4 +1,7 @@
 const { Mongoose } = require("mongoose");
+import mongoose from "mongoose";
+import Category from "../models/"
+
 const Category = require("../models/Category");
 function getRandomInt(max) {
     return Math.floor(Math.random() * max)
