@@ -1,5 +1,6 @@
 import { Button } from "./ui/button";
-const navbar = () => {
+
+const Navbar = () => {
   return (
     <div className="rounded-md flex justify-between items-center bg-custom-purple space-x-2 p-4 shadow-lg ">
       <h1 className="font-meow text-6xl font-bold ">AuraEvents</h1>
@@ -53,7 +54,7 @@ const navbar = () => {
         </div>
       </div>
       <div className="flex space-x-3">
-        <button className="text-black flex items-center gap-2 justify-center">
+        <button className="text-black flex items-center gap-2 justify-center" >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -81,4 +82,4 @@ const navbar = () => {
   );
 }
 
-export default navbar;
+export default Navbar;

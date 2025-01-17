@@ -33,10 +33,6 @@ const SignUp: React.FC = () => {
           setIsSubmitting(false);
           return;
         }
-       
-    
-
-
 
     };
 
